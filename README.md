@@ -1,7 +1,7 @@
-This is a assignment for SER 515.
+# This is a assignment for SER 515.
 
-To run the program:
+## Running the program:
 
-Import the folder hacs in eclipse
+* Import the folder hacs in eclipse
 
-Right click on the package and run Junit Tests
+* Right click on the package and run Junit Tests
