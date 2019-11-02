@@ -4,8 +4,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * 
+ * @author amitsharma
+ * Date: 11/01/2019
+ * @version 1.0
+ *
+ */
 class SolutionIteratorTest {
 
+	private static final String TEST_AUTHOR = "Test Author";
 	Solution solution = new Solution();
 	SolutionList solutionList = new SolutionList();
 	
@@ -25,7 +33,7 @@ class SolutionIteratorTest {
 	void testMoveToHead() {
 		solutionList.add(solution);
 		SolutionIterator solutionIterator = new SolutionIterator(solutionList);
-		solutionIterator.MoveToHead();
+		solutionIterator.moveToHead();
 		assertEquals(-1, solutionIterator.getCurrentSolutionNumber());
 	}
 
@@ -45,10 +53,10 @@ class SolutionIteratorTest {
 
 	@Test
 	void testNextString() {
-		solution.setTheAuthor("Test Author");
+		solution.setTheAuthor(TEST_AUTHOR);
 		solutionList.add(solution);
 		SolutionIterator solutionIterator = new SolutionIterator(solutionList);
-		assertNotNull(solutionIterator.next("Test Author"));
+		assertNotNull(solutionIterator.next(TEST_AUTHOR));
 	}
 
 	@Test

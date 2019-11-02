@@ -2,8 +2,17 @@ package hacs;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.IOException;
+
 import org.junit.jupiter.api.Test;
 
+/**
+ * 
+ * @author amitsharma
+ * Date: 11/01/2019
+ * @version 1.0
+ *
+ */
 class FacadeTest {
 	
 	Facade facade = new Facade();
@@ -17,34 +26,34 @@ class FacadeTest {
 	void testSubmitSolution() {
 		Assignment assignment = new Assignment();
 		Solution solution = new Solution();
-		facade.SubmitSolution(assignment, solution);
+		facade.submitSolution(assignment, solution);
 		assertEquals(1, assignment.getTheSolutionList().size());
 	}
 
 	@Test
 	void testCreateUser() {
 		UserInfoItem userInfoItem = new UserInfoItem();
-		userInfoItem.UserType = UserInfoItem.USER_TYPE.Student;
+		userInfoItem.userType = UserInfoItem.USER_TYPE.Student;
 		userInfoItem.strUserName = "pepe";
-		facade.CreateUser(userInfoItem);
+		facade.createUser(userInfoItem);
 		assertTrue(facade.thePerson instanceof Student);
 	}
 
 	@Test
-	void testCreateCourseList() {
-		facade.CreateCourseList();
+	void testCreateCourseList() throws IOException {
+		facade.createCourseList();
 		assertEquals(3, facade.theCourseList.size());
 	}
 
 	@Test
-	void testAttachCourseToUser() {
+	void testAttachCourseToUser() throws IOException {
 		UserInfoItem userInfoItem = new UserInfoItem();
-		userInfoItem.UserType = UserInfoItem.USER_TYPE.Student;
+		userInfoItem.userType = UserInfoItem.USER_TYPE.Student;
 		userInfoItem.strUserName = "pepe";
-		facade.CreateUser(userInfoItem);
-		facade.CreateCourseList();
-		facade.AttachCourseToUser();
-		assertEquals(2, facade.thePerson.GetCourseList().size());
+		facade.createUser(userInfoItem);
+		facade.createCourseList();
+		facade.attachCourseToUser();
+		assertEquals(2, facade.thePerson.getCourseList().size());
 	}
 
 

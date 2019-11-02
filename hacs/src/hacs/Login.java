@@ -19,8 +19,28 @@ import java.io.*;
  *          Update to Java 8
  */
 
+/**
+ * 
+ * @author amitsharma Date: 11/01/2019
+ * @version 2.0 - Updated according to current Java standards
+ *
+ */
 public class Login extends JDialog {
 
+	private static final String INSTRUCTOR = "Instructor";
+	private static final String INS_INFOR_TXT = "InsInfor.txt";
+	private static final String STU_INFO_TXT = "StuInfo.txt";
+	private static final String STUDENT = "Student";
+	private static final String EXIT = "Exit";
+	private static final String LOGIN = "Login";
+	private static final String PASSWORD = "Password";
+	private static final String USER_NAME = "UserName";
+	private static final int WINDOW_WIDTH = 300;
+	private static final int WINDOW_HEIGHT = 300;
+	/**
+	 * Adding serialization ID as JDialog here implements serializable
+	 */
+	private static final long serialVersionUID = -3225886892489995170L;
 	boolean m_bExit = false;
 	JLabel jLabel1 = new JLabel();
 	JLabel jLabel2 = new JLabel();
@@ -31,14 +51,13 @@ public class Login extends JDialog {
 	JRadioButton StudentRadio = new JRadioButton();
 	JRadioButton InstructorRadio = new JRadioButton();
 	ButtonGroup buttonGroup1 = new ButtonGroup();
-////// Attributes Added By me
 	private String UserBox = null;
 	private USER_TYPE UserType = USER_TYPE.Student; // default to Student
 
 	public Login() {
 		try {
 			jbInit();
-			setSize(300, 300);
+			setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -46,18 +65,18 @@ public class Login extends JDialog {
 
 	private void jbInit() throws Exception {
 		this.getContentPane().setLayout(null);
-		jLabel1.setText("UserName");
+		jLabel1.setText(USER_NAME);
 		jLabel1.setBounds(new Rectangle(26, 52, 80, 18));
-		jLabel2.setText("Password");
+		jLabel2.setText(PASSWORD);
 		jLabel2.setBounds(new Rectangle(23, 119, 80, 18));
-		loginButton.setText("Login");
+		loginButton.setText(LOGIN);
 		loginButton.setBounds(new Rectangle(31, 212, 85, 28));
 		loginButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				loginButton_actionPerformed(e);
 			}
 		});
-		buttonExit.setText("Exit");
+		buttonExit.setText(EXIT);
 		buttonExit.setBounds(new Rectangle(180, 211, 97, 28));
 		buttonExit.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -67,9 +86,9 @@ public class Login extends JDialog {
 		UserNameText.setBounds(new Rectangle(119, 52, 144, 22));
 		PasswordText.setBounds(new Rectangle(118, 119, 147, 22));
 		StudentRadio.setSelected(true);
-		StudentRadio.setText("Student");
+		StudentRadio.setText(STUDENT);
 		StudentRadio.setBounds(new Rectangle(37, 164, 103, 26));
-		InstructorRadio.setText("Instructor");
+		InstructorRadio.setText(INSTRUCTOR);
 		InstructorRadio.setBounds(new Rectangle(177, 162, 103, 26));
 		this.getContentPane().add(jLabel1, null);
 		this.getContentPane().add(jLabel2, null);
@@ -91,11 +110,11 @@ public class Login extends JDialog {
 			if (StudentRadio.isSelected() == true)//// student
 			{
 				UserType = USER_TYPE.Student; /// 0 for student
-				file = new BufferedReader(new FileReader("StuInfo.txt"));
+				file = new BufferedReader(new FileReader(STU_INFO_TXT));
 			} else// instructor
 			{
 				UserType = USER_TYPE.Instructor; // 1 for instructor
-				file = new BufferedReader(new FileReader("InsInfor.txt"));
+				file = new BufferedReader(new FileReader(INS_INFOR_TXT));
 			}
 			UserBox = UserNameText.getText();
 			String PasswordBox = new String(PasswordText.getPassword());
@@ -108,7 +127,7 @@ public class Login extends JDialog {
 					LoginName = UserName;
 			}
 			if (LoginName != null) {
-				this.hide();
+				this.setVisible(false);
 			}
 		} catch (Exception ee) {
 			;
@@ -133,12 +152,12 @@ public class Login extends JDialog {
 	}
 
 	/* after login get the UserName of the login interface */
-	public String GetUserName() {
+	public String getUserName() {
 		return UserBox;
 	}
 
 	/* after login get the userType of the login interface */
-	public USER_TYPE GetUserType() {
+	public USER_TYPE getUserType() {
 		return UserType;
 	}
 
@@ -148,6 +167,6 @@ public class Login extends JDialog {
 
 	void buttonExit_actionPerformed(ActionEvent e) {
 		m_bExit = true;
-		hide();
+		setVisible(false);
 	}
 }

@@ -11,67 +11,62 @@ import java.util.Iterator;
  * @version 1.0
  */
 
-public class CourseIterator implements Iterator
-{
-  ClassCourseList theCourseList;
- 
+/**
+ * 
+ * @author amitsharma Date: 11/01/2019
+ * @version 2.0 - Updated according to current Java standards
+ *
+ */
 
-int CurrentCourseNumber=-1;
+@SuppressWarnings("rawtypes")
+public class CourseIterator implements Iterator {
 
+	private ClassCourseList theCourseList;
 
-  public CourseIterator()
-  {
-  }
+	int currentCourseNumber = -1;
 
-  public CourseIterator(ClassCourseList courseList)
-  {
-    theCourseList=courseList;
-  }
-
-  public boolean hasNext()
-  {
-    if (CurrentCourseNumber>=theCourseList.size()-1)
-      return false;
-    else
-      return true;
-  }
-
-  public Object next()
-  {
-    if (hasNext()==true)
-    {
-      CurrentCourseNumber ++;
-      return theCourseList.get(CurrentCourseNumber);
-    }
-    else
-    {
-      return null;
-    }
-  }
-  public void remove()
-  {
-    theCourseList.remove(CurrentCourseNumber);
-  }
-
-// the next Course that fits the given CourseName
-  public Object next(String CourseName)
-  {
-    Course theCourse;
-    theCourse=(Course)next();
-    while(theCourse!=null)
-    {
-      if(CourseName.compareTo(theCourse.toString())==0)
-      {
-        return theCourse;
-      }
-      theCourse=(Course)next();
-    }
-    return null;
-  }
-  
-  public ClassCourseList getTheCourseList() {
-		return theCourseList;
+	public CourseIterator() {
 	}
 
+	public CourseIterator(ClassCourseList courseList) {
+		theCourseList = courseList;
+	}
+
+	public boolean hasNext() {
+		if (currentCourseNumber >= theCourseList.size() - 1)
+			return false;
+		else
+			return true;
+	}
+
+	public Object next() {
+		if (hasNext() == true) {
+			currentCourseNumber++;
+			return theCourseList.get(currentCourseNumber);
+		} else {
+			return null;
+		}
+	}
+
+	public void remove() {
+		theCourseList.remove(currentCourseNumber);
+	}
+
+	// the next Course that fits the given CourseName
+	public Object next(String courseName) {
+		Course theCourse;
+		theCourse = (Course) next();
+		while (theCourse != null) {
+			if (courseName.compareTo(theCourse.toString()) == 0) {
+				return theCourse;
+			}
+			theCourse = (Course) next();
+		}
+		return null;
+	}
+
+	public ClassCourseList getTheCourseList() {
+		return theCourseList;
+	}
 
 }

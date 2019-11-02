@@ -7,6 +7,13 @@ package hacs;
  * @version 1.0
  */
 
+/**
+ * 
+ * @author amitsharma
+ * Date: 11/01/2019
+ * @version 2.0 - Updated according to current Java standards
+ *
+ */
 abstract public class NodeVisitor {
 
 	public NodeVisitor() {

@@ -9,27 +9,35 @@ package hacs;
  * @version 1.0
  */
 
+
+/**
+ * 
+ * @author amitsharma
+ * Date: 11/01/2019
+ * @version 2.0 - Updated according to current Java standards
+ *
+ */
 public class Student extends Person {
 
 	public Student() {
-		type = 0; // type=0: student
+		setType(PERSON_TYPE.STUDENT.getValue());
 	}
 
-	public CourseMenu CreateCourseMenu(Course theCourse, int theLevel) {
+	public CourseMenu createCourseMenu(Course theCourse, int theLevel) {
 
-		if (theLevel == 0) // 0: Highlevel defined in CourseSelectDlg.
+		if (theLevel == COURSELEVEL.HIGH_LEVEL_COURSE.getValue()) // 0: Highlevel defined in CourseSelectDlg.
 		{
-			theCourseMenu = new HighLevelCourseMenu();
-		} else // 1: LowLevel
+			setTheCourseMenu(new HighLevelCourseMenu());
+		} else
 		{
-			theCourseMenu = new LowLevelCourseMenu();
+			setTheCourseMenu(new LowLevelCourseMenu());
 		}
-		return theCourseMenu;
+		return getTheCourseMenu();
 	}
 
 	@Override
-	public boolean ShowMenu() {
-		super.ShowMenu();
+	public boolean showMenu() {
+		super.showMenu();
 		showViewButtons();
 		showComboxes();
 		showRadios();

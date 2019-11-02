@@ -1,9 +1,6 @@
 package hacs;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
 
 /**
  * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
@@ -17,13 +14,24 @@ import java.io.*;
  * Update to Java 8
  */
 
+/**
+ * 
+ * @author amitsharma Date: 11/01/2019
+ * @version 2.0 - Updated according to current Java standards
+ *
+ */
 public class SolutionMenu extends JDialog {
+
+	/**
+	 * Adding serialization ID as JDialog implements serializable
+	 */
+	private static final long serialVersionUID = 4095964584582810424L;
 
 	public SolutionMenu() {
 	}
 
-	void ShowMenu(Solution theSolution) {
-		show();
+	void showMenu(Solution theSolution) {
+		setVisible(true);
 	}
-	
+
 }

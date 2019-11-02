@@ -11,7 +11,23 @@ import java.awt.event.*;
  * @version 1.0
  */
 
+/**
+ * 
+ * @author amitsharma
+ * Date: 11/01/2019
+ * @version 2.0 - Updated according to current Java standards
+ *
+ */
 public class SolutionGradingDlg extends JDialog {
+	
+	private static final String OK = "OK";
+	private static final String SOLUTION_FILE_NAME = "Solution File Name";
+	private static final int WINDOW_WIDTH = 186;
+	private static final int WINDOW_HEIGHT = 316;
+	/**
+	 * Adding serialization ID as JDialog implements serialization
+	 */
+	private static final long serialVersionUID = -2569190770834686363L;
 	Solution theSolution;
 	JLabel jLabel1 = new JLabel();
 	JTextField tfGrad = new JTextField();
@@ -21,7 +37,7 @@ public class SolutionGradingDlg extends JDialog {
 	public SolutionGradingDlg() {
 		try {
 			jbInit();
-			setSize(316, 186);
+			setSize(WINDOW_HEIGHT, WINDOW_WIDTH);
 			setModal(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -29,11 +45,11 @@ public class SolutionGradingDlg extends JDialog {
 	}
 
 	private void jbInit() throws Exception {
-		jLabel1.setText("Solution File Name");
+		jLabel1.setText(SOLUTION_FILE_NAME);
 		jLabel1.setBounds(new Rectangle(23, 30, 121, 18));
 		this.getContentPane().setLayout(null);
 		tfGrad.setBounds(new Rectangle(25, 66, 100, 22));
-		buttonOK.setText("OK");
+		buttonOK.setText(OK);
 		buttonOK.setBounds(new Rectangle(217, 67, 79, 29));
 		buttonOK.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -50,13 +66,13 @@ public class SolutionGradingDlg extends JDialog {
 	void show(Solution solution) {
 		theSolution = solution;
 		tfGrad.setText("" + theSolution.getGradeInt());
-		labelSolutionFileName.setText(theSolution.SolutionFileName);
-		show();
+		labelSolutionFileName.setText(theSolution.getSolutionFileName());
+		setVisible(true);
 	}
 
 	void buttonOK_actionPerformed(ActionEvent e) {
 		theSolution.theGrade = Integer.parseInt(tfGrad.getText());
-		hide();
+		setVisible(false);
 	}
 
 }

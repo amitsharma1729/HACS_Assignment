@@ -14,16 +14,16 @@ import java.util.*;
  *          update to Java 8
  */
 
-/*
- * this class will iterate the course list attatched to on student and in turn
- * iterate the assignments of a course. after Function Visit(CourseList) it will
- * point to the location before the fist class, hasNext will retrun weather
- * there is next item. the next() will return the next Item Assignment;
+/**
+ * 
+ * @author amitsharma
+ * Date: 11/01/2019
+ * @version 2.0 - Updated according to current Java standards
+ *
  */
-
 public class ReminderVisitor extends NodeVisitor {
 
-	Reminder m_Reminder;
+	private Reminder m_Reminder;
 
 	public ReminderVisitor() {
 	}
@@ -53,17 +53,17 @@ public class ReminderVisitor extends NodeVisitor {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(today);
 		int ntoday = calendar.get(Calendar.DAY_OF_YEAR);
-		calendar.setTime(assignment.DueDate);
+		calendar.setTime(assignment.getDueDate());
 		int nDueDate = calendar.get(Calendar.DAY_OF_YEAR);
 		if (m_Reminder != null) {
 			if (nDueDate <= (ntoday + 1) && nDueDate >= ntoday) /// upcoming
 			{
-				m_Reminder.listUpcoming.add("today is " + today.toString() + " " + assignment.AssName + " Due Date is "
+				m_Reminder.listUpcoming.add("today is " + today.toString() + " " + assignment.getAssignmentName() + " Due Date is "
 						+ assignment.getDueDateString());
 			}
 			if (nDueDate < ntoday) {
 				// put to the
-				m_Reminder.listOverdue.add(assignment.AssName + " Due Date is " + assignment.getDueDateString());
+				m_Reminder.listOverdue.add(assignment.getAssignmentName() + " Due Date is " + assignment.getDueDateString());
 			}
 		}
 
@@ -72,5 +72,10 @@ public class ReminderVisitor extends NodeVisitor {
 	public Reminder getM_Reminder() {
 		return m_Reminder;
 	}
+
+	public void setM_Reminder(Reminder m_Reminder) {
+		this.m_Reminder = m_Reminder;
+	}
+
 
 }

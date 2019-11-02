@@ -9,6 +9,13 @@ import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * 
+ * @author amitsharma
+ * Date: 11/01/2019
+ * @version 1.0
+ *
+ */
 class AssignmentTest {
 	
 	Assignment assignment = new Assignment();
@@ -24,13 +31,13 @@ class AssignmentTest {
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		date = sdf.parse("2019/10/15");
-		assignment.SetDueDate(date);
+		assignment.setDueDate(date);
 		assertEquals(date, assignment.getDueDate());
 	}
 
 	@Test
 	void testSetAssSpec() {
-		assignment.SetAssSpec(new String("hello"));
+		assignment.setAssSpec(new String("hello"));
 		assertEquals("hello", assignment.getAssSpec());
 	}
 
@@ -39,14 +46,14 @@ class AssignmentTest {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		Date date = new Date();
 		date = sdf.parse("2019/10/15");
-		assignment.SetDueDate(date);
-		assertEquals(true, assignment.IsOverDue());
+		assignment.setDueDate(date);
+		assertEquals(true, assignment.isOverDue());
 	}
 
 	@Test
 	void testAddSolution() {
 		solution.setTheAuthor("testStudent");
-		assignment.AddSolution(solution);
+		assignment.addSolution(solution);
 		assertEquals(1, assignment.getTheSolutionList().size());
 	}
 
@@ -63,7 +70,7 @@ class AssignmentTest {
 	@Test
 	void testGetSolution() {
 		solution.setTheAuthor("testStudent");
-		assignment.AddSolution(solution);
+		assignment.addSolution(solution);
 		assertEquals("testStudent", assignment.getSolution("testStudent").getTheAuthor());
 	}
 
@@ -74,7 +81,7 @@ class AssignmentTest {
 
 	@Test
 	void testGetSolutionIterator() {
-		SolutionIterator solutionIterator = assignment.GetSolutionIterator();
+		SolutionIterator solutionIterator = assignment.getSolutionIterator();
 		assertEquals(0, solutionIterator.solutionlist.size());
 	}
 

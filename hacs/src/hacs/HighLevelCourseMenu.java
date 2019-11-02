@@ -8,10 +8,16 @@ package hacs;
  * @author Zhang ji Zhu Wei
  * @version 1.0
  */
-import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * 
+ * @author amitsharma Date: 11/01/2019
+ * @version 2.0 - Updated according to current Java standards
+ *
+ */
 public class HighLevelCourseMenu extends CourseMenu {
 
 	/*
@@ -19,6 +25,16 @@ public class HighLevelCourseMenu extends CourseMenu {
 	 * JRadioButton(); JComboBox OptionCombo = new JComboBox(); JButton
 	 * OptionViewButton = new JButton(); JButton OptionAddButton = new JButton();
 	 */
+
+	private static final String HIGH_LEVEL_PRESENTATION = "HighLevel Presentation";
+	private static final String ADD = "Add";
+	private static final String ASSIGNMENT = "Assignment";
+	private static final String ASSIGMENT_CONTENT = "AssigmentContent";
+	private static final String VIEW = "View";
+	/**
+	 * Adding serialization id as CourseMenu is serialized.
+	 */
+	private static final long serialVersionUID = 423111835707615181L;
 
 	public HighLevelCourseMenu() {
 	}
@@ -31,53 +47,53 @@ public class HighLevelCourseMenu extends CourseMenu {
 	}
 
 	void ShowAddButtons() {
-		AssignmentAddButton.addActionListener(new java.awt.event.ActionListener() {
+		assignmentAddButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AssignmentAddButton_actionPerformed(e);
 			}
 		});
-		AssignmentAddButton.setText("Add");
-		AssignmentAddButton.setBounds(new Rectangle(389, 54, 79, 29));
-		OptionAddButton.setText("Add");
-		OptionAddButton.setBounds(new Rectangle(390, 125, 79, 29));
-		this.getContentPane().add(AssignmentAddButton, null);
-		this.getContentPane().add(OptionAddButton, null);
+		assignmentAddButton.setText(ADD);
+		assignmentAddButton.setBounds(new Rectangle(389, 54, 79, 29));
+		optionAddButton.setText(ADD);
+		optionAddButton.setBounds(new Rectangle(390, 125, 79, 29));
+		this.getContentPane().add(assignmentAddButton, null);
+		this.getContentPane().add(optionAddButton, null);
 	}
 
 	void ShowRadios() {
-		AssignmentRadiao.setText("Assignment");
-		AssignmentRadiao.setBounds(new Rectangle(21, 55, 103, 26));
-		this.getContentPane().add(AssignmentRadiao, null);
-		OptionRadio.setText("HighLevel Presentation");
-		OptionRadio.setBounds(new Rectangle(21, 128, 103, 26));
-		this.getContentPane().add(OptionRadio, null);
+		assignmentRadiao.setText(ASSIGNMENT);
+		assignmentRadiao.setBounds(new Rectangle(21, 55, 103, 26));
+		this.getContentPane().add(assignmentRadiao, null);
+		optionRadio.setText(HIGH_LEVEL_PRESENTATION);
+		optionRadio.setBounds(new Rectangle(21, 128, 103, 26));
+		this.getContentPane().add(optionRadio, null);
 	}
 
 	void ShowComboxes() {
-		AssignmentCombox.setBounds(new Rectangle(140, 57, 126, 22));
-		OptionCombo.setBounds(new Rectangle(137, 127, 126, 22));
-		this.getContentPane().add(AssignmentCombox, null);
-		this.getContentPane().add(OptionCombo, null);
+		assignmentCombox.setBounds(new Rectangle(140, 57, 126, 22));
+		optionCombo.setBounds(new Rectangle(137, 127, 126, 22));
+		this.getContentPane().add(assignmentCombox, null);
+		this.getContentPane().add(optionCombo, null);
 		refresh();
 	}
 
 	void ShowViewButtons() {
-		AssignmentViewButton.setText("View");
-		AssignmentViewButton.setBounds(new Rectangle(290, 54, 79, 29));
-		AssignmentViewButton.addActionListener(new java.awt.event.ActionListener() {
+		assignmentViewButton.setText(VIEW);
+		assignmentViewButton.setBounds(new Rectangle(290, 54, 79, 29));
+		assignmentViewButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AssignmentViewButton_actionPerformed(e);
 			}
 		});
-		OptionViewButton.setText("View");
-		OptionViewButton.setBounds(new Rectangle(290, 124, 79, 29));
-		this.getContentPane().add(AssignmentViewButton, null);
-		this.getContentPane().add(OptionViewButton, null);
+		optionViewButton.setText(VIEW);
+		optionViewButton.setBounds(new Rectangle(290, 124, 79, 29));
+		this.getContentPane().add(assignmentViewButton, null);
+		this.getContentPane().add(optionViewButton, null);
 	}
 
 	void ShowLabel() {
-		AssignmentContentLable.setText("AssigmentContent");
-		AssignmentContentLable.setBounds(new Rectangle(23, 186, 432, 99));
-		this.getContentPane().add(AssignmentContentLable, null);
+		assignmentContentLable.setText(ASSIGMENT_CONTENT);
+		assignmentContentLable.setBounds(new Rectangle(23, 186, 432, 99));
+		this.getContentPane().add(assignmentContentLable, null);
 	}
 }

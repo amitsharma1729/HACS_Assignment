@@ -13,21 +13,27 @@ import java.util.*;
  * @version 2.0 Update to Java 8
  */
 
+/**
+ * 
+ * @author amitsharma Date: 11/01/2019
+ * @version 2.0 - Updated according to current Java standards
+ *
+ */
 public class Course {
-	String CourseName;
-	int NumOfAss;
-	int CourseLevel;
+	String courseName;
+	int numOfAssignment;
+	int courseLevel;
 	boolean accepted = false;
 
 	public ArrayList<Assignment> assignmentList = new ArrayList<Assignment>();
 
 	public Course(String strCourse, int theLevel) {
-		this.CourseName = strCourse;
+		this.courseName = strCourse;
 
 		// 0 HighLeve presentation 1 LowLevel Experiment
-		this.CourseLevel = theLevel;
+		this.courseLevel = theLevel;
 		// this.AssList = NULL;
-		this.NumOfAss = 0;
+		this.numOfAssignment = 0;
 	}
 
 	public void AddAssignment(Assignment newAss) {
@@ -35,7 +41,7 @@ public class Course {
 	}
 
 	public String toString() {
-		return CourseName;
+		return courseName;
 	}
 
 	void accept(NodeVisitor visitor) {
@@ -44,12 +50,11 @@ public class Course {
 	}
 
 	public int getCourseLevel() {
-		return CourseLevel;
+		return courseLevel;
 	}
-	
+
 	public boolean isVisited() {
 		return accepted;
 	}
-
 
 }
